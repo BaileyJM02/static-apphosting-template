@@ -1,0 +1,25 @@
+# This is the name shown on the Actions tab page when listing what current actions there are.
+name: Deploy to Jexia
+
+# This workflow is triggered when a push is created to the master branch. Discussed more later.
+on:
+  push:
+    branches: [ master ]
+
+# The 'job' or 'process' we want to run and in which order,
+# we will only need one at this moment in time.
+jobs:
+  deploy: # Anything we want
+    name: Deploy # User friendly name
+    runs-on: ubuntu-latest # The operating ...
+    steps:
+      -   uses: jexia/deploy-action@v1.1.0
+          with:
+            # The email used for your Jexia ...
+            email: mail@example.com
+            # Your password for your Jexia ...
+            password: ${{ secrets.JEXIA_PASSWORD }}
+            # Your Jexia project ID
+            project_id: 52b4bd4f-832f-4bee-ba33-6f6098764e5c
+            # Your Jexia project's app ID
+            app_id: 
